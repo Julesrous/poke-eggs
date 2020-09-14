@@ -1,0 +1,15 @@
+<h1>Your pokeggs bought!</h1>
+
+  <% @user.orders.each do |order| %>
+    <% if order.state == 'paid' %>
+      <%= order.pokegg.name %>
+      <%= cl_image_tag order.pokegg.photo.key, height: 200, width: 300, crop: :fill%>
+    <% end %>
+  <% end %>
+
+<h1> You pokeggs sold!</h1>
+
+<% @pokeggs.each do |pokegg| %>
+  <%= pokegg.name %>
+  <%= cl_image_tag pokegg.photo.key, height: 200, width: 300, crop: :fill%>
+<% end %>

@@ -1,0 +1,10 @@
+<%= simple_form_for @pokegg do |f| %>
+  <%= f.input :name %>
+  <%= f.input :category %>
+  <%= f.input :region %>
+   <%= f.input :birthday %>
+   <%= f.input :price %>
+  <%= f.input :state %>
+  <%= f.input :photo, as: :file %>
+  <%= f.button :submit %>
+<% end %>

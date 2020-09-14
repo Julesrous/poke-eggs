@@ -1,0 +1,145 @@
+<div class="container">
+  <%= link_to "back", pokeggs_path, class: 'btn btn-primary back-btn' %>
+  <div class="container-show-pokegg">
+    <div class="pokegg-name">
+      <h1><%= @pokegg.name %></h1>
+    </div>
+    <div class="pokegg-image-main-information">
+      <div class="pokegg-image">
+        <%= cl_image_tag @pokegg.photo.key, height: 200, width: 300, crop: :fill%>
+      </div>
+      <div class="pokegg-main-information" >
+        <div class="pokegg-state">
+          State of the pokegg: <%= @pokegg.state %>!
+        </div>
+        <div class="pokegg-type">
+          <% if @pokegg.category == "Feu"  %>
+              <div class="pokegg-feu-card mt-3 mb-2 px-1">
+                <%= @pokegg.category %>
+              </div>
+            <% elsif @pokegg.category == "Eau"%>
+              <div class="pokegg-eau-card mt-3 mb-2 px-1">
+                <%= @pokegg.category %>
+              </div>
+            <% elsif @pokegg.category == "Plante" %>
+              <div class="pokegg-plante-card mt-3 mb-2 px-1">
+                <%= @pokegg.category %>
+              </div>
+            <% elsif @pokegg.category == "Insecte" %>
+              <div class="pokegg-insecte-card mt-3 mb-2 px-1">
+                <%= @pokegg.category %>
+              </div>
+            <% elsif @pokegg.category == "Electricité"  %>
+              <div class="pokegg-electricite-card mt-3 mb-2 px-1">
+                <%= @pokegg.category %>
+              </div>
+            <% elsif @pokegg.category == "Roche"  %>
+              <div class="pokegg-roche-card mt-3 mb-2 px-1">
+                <%= @pokegg.category %>
+              </div>
+            <% elsif @pokegg.category == "Sol"  %>
+              <div class="pokegg-sol-card mt-3 mb-2 px-1">
+                <%= @pokegg.category %>
+              </div>
+            <% elsif @pokegg.category == "Dragon"  %>
+              <div class="pokegg-dragon-card mt-3 mb-2 px-1">
+                <%= @pokegg.category %>
+              </div>
+            <% elsif @pokegg.category == "Fée" %>
+              <div class="pokegg-fee-card mt-3 mb-2 px-1">
+                <%= @pokegg.category %>
+              </div>
+            <% elsif @pokegg.category == "Ténèbre" %>
+              <div class="pokegg-tenebre-card mt-3 mb-2 px-1">
+                <%= @pokegg.category %>
+              </div>
+            <% elsif @pokegg.category == "Spectre"  %>
+              <div class="pokegg-spectre-card mt-3 mb-2 px-1">
+                <%= @pokegg.category %>
+              </div>
+            <% elsif @pokegg.category == "Psy" %>
+              <div class="pokegg-psy-card mt-3 mb-2 px-1">
+                <%= @pokegg.category %>
+              </div>
+            <% elsif @pokegg.category == "Normal" %>
+              <div class="pokegg-normal-card mt-3 mb-2 px-1">
+                <%= @pokegg.category %>
+              </div>
+            <% elsif @pokegg.category == "Combat"  %>
+              <div class="pokegg-combat-card mt-3 mb-2 px-1">
+                <%= @pokegg.category %>
+              </div>
+            <% elsif @pokegg.category == "Glace" %>
+              <div class="pokegg-glace-card mt-3 mb-2 px-1">
+                <%= @pokegg.category %>
+              </div>
+            <% elsif @pokegg.category == "Poison"  %>
+              <div class="pokegg-poison-card mt-3 mb-2 px-1">
+                <%= @pokegg.category %>
+              </div>
+            <% elsif @pokegg.category == "Vol" %>
+              <div class="pokegg-vol-card mt-3 mb-2 px-1">
+                <%= @pokegg.category %>
+              </div>
+            <% else %>
+              <div class="pokegg-acier-card mt-3 mb-2 px-1">
+                <%= @pokegg.category %>
+              </div>
+          <% end %>
+        </div>
+        <div class="pokegg-birthday">
+          <i class="fas fa-birthday-cake"></i> <%= @pokegg.birthday %>
+        </div>
+        <% if @pokegg.user.id == @user.id %>
+          <div><%= cl_image_tag @pokegg.user.photo.key, height: 50, width: 50, crop: :fill, class: "avatar-user" %> This is your <%= @pokegg.name %> egg! </div>
+        <%else %>
+          <div> <%= cl_image_tag @pokegg.user.photo.key, height: 50, width: 50, crop: :fill, class: "avatar-user" %> This egg belongs to <%= @pokegg.user.first_name %>!</div>
+        <% end %>
+      </div>
+    </div>
+    <div class="pokegg-region-user">
+      <div>
+      <% if @pokegg.user.id == @user.id %>
+          As you know, this egg comes from <%= @pokegg.region %>!
+      <% else %>
+        <% if @pokegg.region == @user.region %>
+            It comes from <%= @pokegg.region %>! The same region as you! The transport price will be 10€!
+            <% @pokegg.price  = @pokegg.price.to_i+10%>
+            <div class = "total-price">
+              Which means that the total price will be <%= @pokegg.price %>€!
+            </div>
+            Delivery date: between the <%= Date.today+1.day %> and the <%= Date.today+7.day %>
+                <% if @pokegg.birthday > Date.today+7 %>
+                  <%= form_tag orders_path do %>
+                    <%= hidden_field_tag 'pokegg_id', @pokegg.id %>
+                    <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+                  <% end %>
+                <%else %>
+                 <%=flash[:alert] = "You can't buy this pokegg! The pokemon could born before you receive it!"  %>
+                <% end %>
+          <% else %>
+              It comes from <%= @pokegg.region %>! That is far from <%= @user.region %>! The boat is essential for the delivery, its price will be 100€!
+              <% @pokegg.price  = @pokegg.price.to_i+100%>
+              <div class = "total-price">
+                Which means that the total price will be <%= @pokegg.price %>€!
+              </div>
+              Delivery date: between the <%= Date.today+7.day %> and the <%= Date.today+30.day %>
+                <% if @pokegg.birthday > Date.today+7 %>
+                  <%= form_tag orders_path do %>
+                    <%= hidden_field_tag 'pokegg_id', @pokegg.id %>
+                    <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+                  <% end %>
+                <%else %>
+                <div class= "error-buy">
+                  <%=flash[:alert] = "You can't buy this pokegg! The pokemon could born before you receive it!"  %>
+                </div>
+                <% end %>
+            <% end %>
+          <% end %>
+      </div>
+      <% if policy(@pokegg).edit? %>
+      <%= link_to "Update", edit_pokegg_path(@pokegg), class: 'btn btn-primary' %>
+    <% end %>
+    </div>
+  </div>
+</div>

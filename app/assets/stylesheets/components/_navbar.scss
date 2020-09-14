@@ -1,0 +1,29 @@
+.avatar-current-user {
+  border-radius: 50px;
+}
+
+a p {
+  color: #facc33;
+  font-size: 20px;
+  text-shadow: 2px 0 0 #375a9e, -2px 0 0 #375a9e, 0 2px 0 #375a9e, 0 -2px 0 #375a9e, 1px 1px #375a9e, -1px -1px 0 #375a9e, 1px -1px 0 #375a9e, -1px 1px 0 #375a9e;
+  margin-bottom: 0px !important;
+}
+
+a p::hover {
+  text-decoration: none !important;
+}
+
+.navbar {
+  background-color: #375a9e !important;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar a {
+  color: #facc33;
+  font-weight: bold;
+}
+
+.dropdown a {
+  color: #375a9e;
+}

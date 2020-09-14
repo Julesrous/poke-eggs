@@ -1,0 +1,68 @@
+.pokegg-name h1 {
+font-weight: bold;
+color: #375a9e;
+}
+
+.container-show-pokegg {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pokegg-region-user .btn {
+  color: #facc33;
+  background-color: #375a9e;
+  font-weight: bold;
+  border-color: #375a9e;
+  margin-top: 10px;
+}
+
+.pokegg-region-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar-user {
+  border-radius: 50px;
+}
+
+.error-buy {
+  border: 2px solid red;
+  color: red;
+}
+
+.pokegg-image-main-information {
+  display: flex;
+}
+
+.pokegg-main-information {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.back-btn {
+  background-color: white;
+  color: #375a9e;
+  border-color: #375a9e;
+}
+
+.back-btn:hover {
+  color: white;
+  background-color: #375a9e;
+  border-color: #375a9e;
+}
+
+.container {
+  margin: 10px;
+  padding: 0px;
+}
+
+  .top-home h1 {
+  color: #facc33;
+  font-size: 70px;
+  text-shadow: 8px 0 0 #375a9e, -8px 0 0 #375a9e, 0 8px 0 #375a9e, 0 -8px 0 #375a9e, 4px 4px #375a9e, -4px -4px 0 #375a9e, 4px -4px 0 #375a9e, -4px 4px 0 #375a9e;
+}
+

@@ -1,0 +1,46 @@
+.pokegg-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pokegg-card {
+  display:flex;
+  box-shadow: 10px 5px 5px #C0C0C0;
+  border-radius: 10px;
+  border: 1px solid #C0C0C0;
+}
+
+.pokegg-information-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pokegg-name-card {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.pokegg-card .btn {
+  color: #facc33;
+  background-color: #375a9e;
+  font-weight: bold;
+  border-color: #375a9e;
+
+}
+
+.find-pokegg-title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.find-pokegg-title h1 {
+  color: #375a9e;
+}
+
+.fas {
+  color: #375a9e;
+}

@@ -1,0 +1,2 @@
+module PokeggsHelper
+end

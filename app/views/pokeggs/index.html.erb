@@ -1,0 +1,109 @@
+
+  <div class="find-pokegg-title">
+    <h1> Find your pokegg </h1>
+  </div>
+<div class="pokegg-cards">
+  <% @pokeggs.each do |pokemon| %>
+    <% if pokemon.available == false %>
+        <div class="pokegg-card my-3 d-none" >
+          <div class="pokegg-name-card"><%= pokemon.name %></div>
+        </div>
+      <% else %>
+        <div class="pokegg-card my-3" >
+          <%= cl_image_tag pokemon.photo.key, height: 200, width: 300, crop: :fill%>
+          <div class="pokegg-information-card px-3">
+            <div class="pokegg-name-card"><%= pokemon.name %></div>
+            <% if pokemon.category == "Feu"  %>
+              <div class="pokegg-feu-card my-3 px-1">
+                <%= pokemon.category %>
+              </div>
+            <% elsif pokemon.category == "Eau"%>
+              <div class="pokegg-eau-card my-3 px-1">
+                  <%= pokemon.category %>
+              </div>
+            <% elsif pokemon.category == "Plante" %>
+              <div class="pokegg-plante-card my-3 px-1">
+                  <%= pokemon.category %>
+              </div>
+            <% elsif pokemon.category == "Insecte" %>
+             <div class="pokegg-insecte-card my-3 px-1">
+                <%= pokemon.category %>
+              </div>
+            <% elsif pokemon.category == "Electricité"  %>
+            <div class="pokegg-electricite-card my-3 px-1">
+                <%= pokemon.category %>
+              </div>
+            <% elsif pokemon.category == "Roche"  %>
+            <div class="pokegg-roche-card my-3 px-1">
+                <%= pokemon.category %>
+              </div>
+            <% elsif pokemon.category == "Sol"  %>
+            <div class="pokegg-sol-card my-3 px-1">
+                <%= pokemon.category %>
+              </div>
+            <% elsif pokemon.category == "Dragon"  %>
+            <div class="pokegg-dragon-card my-3 px-1">
+                <%= pokemon.category %>
+              </div>
+            <% elsif pokemon.category == "Fée" %>
+            <div class="pokegg-fee-card my-3 px-1">
+                <%= pokemon.category %>
+              </div>
+            <% elsif pokemon.category == "Ténèbre" %>
+            <div class="pokegg-tenebre-card my-3 px-1">
+                <%= pokemon.category %>
+              </div>
+            <% elsif pokemon.category == "Spectre"  %>
+            <div class="pokegg-spectre-card my-3 px-1">
+                <%= pokemon.category %>
+              </div>
+            <% elsif pokemon.category == "Psy" %>
+            <div class="pokegg-psy-card my-3 px-1">
+                <%= pokemon.category %>
+              </div>
+            <% elsif pokemon.category == "Normal" %>
+            <div class="pokegg-normal-card my-3 px-1">
+                <%= pokemon.category %>
+              </div>
+            <% elsif pokemon.category == "Combat"  %>
+            <div class="pokegg-combat-card my-3 px-1">
+                <%= pokemon.category %>
+              </div>
+            <% elsif pokemon.category == "Glace" %>
+            <div class="pokegg-glace-card my-3 px-1">
+                <%= pokemon.category %>
+              </div>
+            <% elsif pokemon.category == "Poison"  %>
+            <div class="pokegg-poison-card my-3 px-1">
+                <%= pokemon.category %>
+              </div>
+            <% elsif pokemon.category == "Vol" %>
+            <div class="pokegg-vol-card my-3 px-1">
+                <%= pokemon.category %>
+              </div>
+            <% else %>
+            <div class="pokegg-acier-card my-3 px-1">
+                <%= pokemon.category %>
+              </div>
+            <% end %>
+            <div>
+              <p>Amount: <%= humanized_money_with_symbol(pokemon.price) %></p>
+            </div>
+            <div>
+              <%= link_to "see details", pokegg_path(pokemon.id), class: "btn btn-primary"%>
+            </div>
+            <div>
+              <% if policy(pokemon).destroy?  %>
+              <%= link_to pokegg_path(pokemon),
+                method: :delete,
+                data: { confirm: "Are you sure?" } do %>
+                  <i class="fas fa-trash-alt"></i>
+                <% end %>
+              <% end %>
+
+            </div>
+          </div>
+        </div>
+    <% end %>
+    <% end %>
+</div>

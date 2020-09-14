@@ -1,0 +1,110 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Pokemon Solid";
+  height: 100vh;
+}
+
+.home-container .btn {
+  color: #facc33;
+  background-color: #375a9e;
+  font-weight: bold;
+  border-color: #375a9e;
+  padding: 15px;
+  font-size: 30px;
+  opacity: 0.9;
+  border-radius: 20px;
+  transition: padding 1s, opacity 1s;
+}
+
+.home-container .btn:hover {
+ opacity: 1;
+ padding: 20px;
+}
+
+.top-home {
+  width: 100%;
+  height: 47%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.top-home::after {
+  content: "";
+  background: url("pokeggs.png");
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.top-home h1 {
+  color: #facc33;
+  font-size: 70px;
+  text-shadow: 8px 0 0 #375a9e, -8px 0 0 #375a9e, 0 8px 0 #375a9e, 0 -8px 0 #375a9e, 4px 4px #375a9e, -4px -4px 0 #375a9e, 4px -4px 0 #375a9e, -4px 4px 0 #375a9e;
+}
+
+.middle-home {
+  height: 20%;
+}
+
+.bottom-page {
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#region-kanto {
+  transform: rotate(30deg);
+  color: #facc33;
+  font-size: 35px;
+  text-shadow: 4px 0 0 #375a9e, -4px 0 0 #375a9e, 0 4px 0 #375a9e, 0 -4px 0 #375a9e, 2px 2px #375a9e, -2px -2px 0 #375a9e, 2px -2px 0 #375a9e, -2px 2px 0 #375a9e;
+  position: relative;
+  right: 385px;
+  top: -225px;
+}
+
+#region-johto {
+  transform: rotate(330deg);
+   color: #facc33;
+  font-size: 35px;
+  text-shadow: 4px 0 0 #375a9e, -4px 0 0 #375a9e, 0 4px 0 #375a9e, 0 -4px 0 #375a9e, 2px 2px #375a9e, -2px -2px 0 #375a9e, 2px -2px 0 #375a9e, -2px 2px 0 #375a9e;
+  position: relative;
+  right: 485px;
+  top: -175px;
+}
+
+#region-hoenne {
+  transform: rotate(30deg);
+   color: #facc33;
+  font-size: 35px;
+  text-shadow: 4px 0 0 #375a9e, -4px 0 0 #375a9e, 0 4px 0 #375a9e, 0 -4px 0 #375a9e, 2px 2px #375a9e, -2px -2px 0 #375a9e, 2px -2px 0 #375a9e, -2px 2px 0 #375a9e;
+  position: relative;
+  right: -385px;
+  top: -265px;
+}
+
+#region-shinnoh {
+  transform: rotate(330deg);
+   color: #facc33;
+  font-size: 35px;
+  text-shadow: 4px 0 0 #375a9e, -4px 0 0 #375a9e, 0 4px 0 #375a9e, 0 -4px 0 #375a9e, 2px 2px #375a9e, -2px -2px 0 #375a9e, 2px -2px 0 #375a9e, -2px 2px 0 #375a9e;
+  position: relative;
+  right: -485px;
+  top: -215px;
+}
+
+.text-pikachu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
