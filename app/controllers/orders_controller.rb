@@ -48,8 +48,6 @@ else
 def show
   @order = current_user.orders.find(params[:id])
   @pokegg = @order.pokegg
-   @order.state = 'paid'
-   @order.save
   if @order.state == 'paid'
     @pokegg.available = false
     @pokegg.save
